@@ -13,6 +13,9 @@ function login(){
             uid = user.uid;
             x=1;
             localStorage.setItem("id", uid);
+            jQuery(window).load(function() {
+              sessionStorage.setItem('status','loggedIn') 
+            });
             document.getElementById('alerta_mail_conectare').innerHTML = ''
             window.alert("Te-ai conectat cu succes!")
             location.replace("index2.html")
@@ -188,7 +191,6 @@ for (i = 1; i < 25; i++) {
 
 $('.save').on('click', function() {
   var ID=localStorage.getItem("id");
-  window.alert(ID)
     todoArray = [];
 
     for (i = 1; i < 25; i++) {
@@ -230,3 +232,14 @@ function loadTodos() {
 }
 
 loadTodos();
+
+function checkUser(){
+  if (sessionStorage.getItem('status') != null)
+  console.log()
+else{
+    alert("nu esti conectat")
+      function disableBack() { window.history.forward(); }
+      setTimeout("disableBack()", 0);
+      window.onunload = function () { null };
+}
+}
